@@ -1,8 +1,9 @@
-<!-- Toolbar -->
+<!--  
 <mat-toolbar color="primary" class="mat-elevation-z4 toolbar">
   <div class="brand" (click)="scrollToTop()">
     <img src="assets/slide2.png" alt="logo" class="logo" />
-    <span class="brand-text">George Ziaziaris</span>
+    <span class="brand-text">ΓΕΩΡΓΙΟΣ Π. ΖΙΑΖΙΑΡΗΣ
+    </span>
   </div>
   <span class="spacer"></span>
   <button mat-flat-button color="accent" class="nav-button" (click)="scrollTo('about')">
@@ -17,22 +18,27 @@
 
 </mat-toolbar>
 
-<!-- Image Carousel -->
+ 
 <div class="carousel">
   <img [src]="images[currentIndex]" alt="Slide Image">
 </div>
 
-<!-- Main Content Container -->
+ 
 <div class="content">
 
-  <!-- About the Teacher -->
+ 
   <section id="about">
-    <h2>About the Teacher</h2>
-    <p>Hi! I'm Mr. Math, a passionate mathematics teacher dedicated to making math fun, engaging, and meaningful for
-      students of all ages.</p>
+    <h2>Σχετικά με τον καθηγητή</h2>
+    <p>Ο Γιώργος Ζιαζιάρης είναι απόφοιτος του Τμήματος Μαθηματικών του Πανεπιστημίου Πατρών και διαθέτει πολυετή
+      εμπειρία στη διδασκαλία μαθηματικών, τόσο σε ιδιαίτερα μαθήματα όσο και σε οργανωμένα φροντιστήρια. Ζει και
+      εργάζεται στην Αθήνα, όπου βοηθά μαθητές Γυμνασίου και Λυκείου να κατανοήσουν εις βάθος τα μαθηματικά και να
+      αποκτήσουν αυτοπεποίθηση στις εξετάσεις. Μεθοδικός, υπομονετικός και πάντα προσαρμοσμένος στις ανάγκες κάθε
+      μαθητή, διδάσκει με στόχο όχι απλώς την απόδοση, αλλά και την κατανόηση και αγάπη για το αντικείμενο. Η εμπειρία
+      του και η ανθρώπινη προσέγγιση τον καθιστούν μια σταθερή επιλογή για γονείς και μαθητές που αναζητούν σοβαρή και
+      αποδοτική υποστήριξη.</p>
   </section>
 
-  <!-- Social & Contact Info -->
+ 
   <section class="contact-info" id="contact">
     <h2>Get in Touch</h2>
     <div class="contact-layout">
@@ -46,16 +52,24 @@
         </a>
       </div>
 
-      <!-- Right Box: Map -->
+ 
       <div class="location-box">
-        <div id="map" class="map-container"></div>
+        <mat-icon class="location-icon">location_on</mat-icon>
+        <div class="location-info">
+          <strong>Μυστρά 54, Άνω Γλυφάδα</strong>
+          <a href="https://www.google.com/maps/place/Μυστρά+54,+Άνω+Γλυφάδα" target="_blank" class="location-button">
+            Δες στον χάρτη
+            <mat-icon>open_in_new</mat-icon>
+          </a>
+        </div>
       </div>
+
 
     </div>
   </section>
 
 
-  <!-- Message Box -->
+ 
   <section class="message-box">
     <h2>Send a Message</h2>
     <form #contactForm="ngForm" (ngSubmit)="sendMessage(name.value, email.value, message.value)" novalidate>
@@ -83,6 +97,111 @@
   </section>
 
 
+</div>
+
+ 
+<mat-toolbar color="primary" class="footer">
+  <span>&copy; 2025 Mr. George Ziaziaris</span>
+</mat-toolbar> -->
+
+<!-- Fixed and Updated app.component.html (with backend message sending) -->
+
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="mat-elevation-z4 toolbar">
+  <div class="brand" (click)="scrollToTop()">
+    <img src="assets/slide2.png" alt="logo" class="logo" />
+    <span class="brand-text">ΓΕΩΡΓΙΟΣ Π. ΖΙΑΖΙΑΡΗΣ</span>
+  </div>
+  <span class="spacer"></span>
+  <button mat-flat-button color="accent" class="nav-button" (click)="scrollTo('about')">
+    <mat-icon>info</mat-icon>
+    About
+  </button>
+  <button mat-flat-button color="accent" class="nav-button" (click)="scrollTo('contact')">
+    <mat-icon>contacts</mat-icon>
+    Contact
+  </button>
+</mat-toolbar>
+
+<!-- Image Carousel -->
+<div class="carousel">
+  <img [src]="images[currentIndex]" alt="Slide Image">
+</div>
+
+<!-- Main Content Container -->
+<div class="content">
+
+  <!-- About the Teacher -->
+  <section id="about">
+    <h2>Σχετικά με τον καθηγητή</h2>
+    <p>
+      Ο Γιώργος Ζιαζιάρης είναι απόφοιτος του Τμήματος Μαθηματικών του Πανεπιστημίου Πατρών και διαθέτει πολυετή
+      εμπειρία στη διδασκαλία μαθηματικών, τόσο σε ιδιαίτερα μαθήματα όσο και σε οργανωμένα φροντιστήρια. Ζει και
+      εργάζεται στην Αθήνα, όπου βοηθά μαθητές Γυμνασίου και Λυκείου να κατανοήσουν εις βάθος τα μαθηματικά και να
+      αποκτήσουν αυτοπεποίθηση στις εξετάσεις. Μεθοδικός, υπομονετικός και πάντα προσαρμοσμένος στις ανάγκες κάθε
+      μαθητή, διδάσκει με στόχο όχι απλώς την απόδοση, αλλά και την κατανόηση και αγάπη για το αντικείμενο. Η εμπειρία
+      του και η ανθρώπινη προσέγγιση τον καθιστούν μια σταθερή επιλογή για γονείς και μαθητές που αναζητούν σοβαρή και
+      αποδοτική υποστήριξη.
+    </p>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="contact-info" id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-layout">
+      <div class="social">
+        <a href="tel:+306982881163"><mat-icon>call</mat-icon> +30 698 288 1164</a>
+        <a href="mailto:geoziaziaris@gmail.com"><mat-icon>email</mat-icon> E-mail</a>
+        <a href="https://www.facebook.com/george.ziaziaris" target="_blank"><mat-icon>facebook</mat-icon> Facebook</a>
+        <a href="https://www.instagram.com/giwrgos_ziaziaris/?hl=el" target="_blank">
+          <img src="assets/insta.png" alt="Instagram" class="social-icon" /> Instagram
+        </a>
+      </div>
+
+      <!-- Location Box -->
+      <div class="location-box">
+        <mat-icon class="location-icon">location_on</mat-icon>
+        <div class="location-info">
+          <strong>Μυστρά 54, Άνω Γλυφάδα</strong>
+          <a href="https://www.google.com/maps/place/Μυστρά+54,+Άνω+Γλυφάδα" target="_blank" class="location-button">
+            Δες στον χάρτη
+            <mat-icon>open_in_new</mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <div id="map" class="map-container"></div>
+
+  <!-- Message Box -->
+  <section class="message-box">
+    <h2>Send a Message</h2>
+    <form #contactForm="ngForm" (ngSubmit)="sendMessageMongo()" novalidate>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Your Name</mat-label>
+        <input matInput name="name" [(ngModel)]="formData.name" required>
+        <mat-error *ngIf="contactForm.submitted && !formData.name">Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Your Email</mat-label>
+        <input matInput name="email" [(ngModel)]="formData.email" required email>
+        <mat-error *ngIf="contactForm.submitted && !formData.email">Valid email is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Your Message</mat-label>
+        <textarea matInput name="message" [(ngModel)]="formData.message" rows="4" required></textarea>
+        <mat-error *ngIf="contactForm.submitted && !formData.message">Message is required</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" type="submit" [disabled]="contactForm.invalid">
+        Send
+      </button>
+    </form>
+  </section>
 </div>
 
 <!-- Footer -->

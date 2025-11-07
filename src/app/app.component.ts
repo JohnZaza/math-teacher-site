@@ -7,9 +7,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { ApiService } from './services/api.service';
 import * as L from 'leaflet';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
+@Injectable({ providedIn: 'root' })
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -26,12 +29,15 @@ import * as L from 'leaflet';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements AfterViewInit {
+  constructor(private api: ApiService) { }
+
   images = [
-    'assets/slide1.png',
-    'assets/slide3.png',
-    'assets/slide4.png',
-    'assets/slide5.png'
+    'assets/_.png',
+    // 'assets/slide3.png',
+    // 'assets/slide4.png',
+    // 'assets/slide5.png'
   ];
   currentIndex = 0;
 
@@ -50,6 +56,14 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.fixLeafletIcons();
     setTimeout(() => this.initializeMap(), 500); // delay to let DOM fully load
+  }
+
+
+  sendMessageMongo() {
+    this.api.sendMessage(this.formData).subscribe({
+      next: () => alert('Message sent!'),
+      error: err => console.error('Send error:', err)
+    });
   }
 
   fixLeafletIcons(): void {
